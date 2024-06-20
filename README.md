@@ -1,5 +1,7 @@
 # Bike application
 
+[Colección de postman con peticiones de ejemplo](BIKE%20APP.postman_collection.json)
+
 ## Implementación 🔨
 
 ### Organización de paquetes

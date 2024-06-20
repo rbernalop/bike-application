@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "dcce036b-484f-4fec-955d-9c2d882aa64e",
+		"name": "BIKE APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17704493"
+	},
+	"item": [
+		{
+			"name": "Create bike",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"1c6684c5-1995-40d4-8e06-4f0b23b4f56c\",\n  \"name\": \"Mountain Bike X1\",\n  \"description\": \"A high-performance mountain bike for rugged terrains.\",\n  \"price\": 1200.50,\n  \"manufacturer\": \"BikeCorp\",\n  \"items\": [\n    {\n      \"id\": \"4955d2a3-5fcd-4b77-8328-b3bbf10903a9\",\n      \"model\": \"Wheelset 29\",\n      \"type\": \"Wheels\",\n      \"description\": \"Durable 29-inch wheels for all terrains.\"\n    },\n    {\n      \"id\": \"b2bb980d-034e-49a2-ad00-f08a08000b93\",\n      \"model\": \"Shock Absorber Pro\",\n      \"type\": \"Suspension\",\n      \"description\": \"High-quality shock absorbers for a smooth ride.\"\n    },\n    {\n      \"id\": \"385677a4-ae25-4d7b-b0ed-105b9aa131b4\",\n      \"model\": \"Carbon Frame\",\n      \"type\": \"Frame\",\n      \"description\": \"Lightweight carbon frame for increased agility.\"\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/bike",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"bike"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get bikes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/bike?name=Mounta&manufacturer=BikeCo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"bike"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Mounta"
+						},
+						{
+							"key": "sortByNameAscending",
+							"value": "false",
+							"disabled": true
+						},
+						{
+							"key": "itemType",
+							"value": "Suspensi",
+							"disabled": true
+						},
+						{
+							"key": "manufacturer",
+							"value": "BikeCo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Set global variables for JWT and UserID\", function () {\r",
+							"    var jwt = pm.response.text();\r",
+							"\r",
+							"    if (jwt) {\r",
+							"        pm.collectionVariables.set(\"AUTH_TOKEN\", jwt);\r",
+							"    }\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"1c6684c5-1995-40d4-8e06-4f0b23b4f56c\",\n  \"name\": \"Mountain Bike X1\",\n  \"description\": \"A high-performance mountain bike for rugged terrains.\",\n  \"price\": 1200.50,\n  \"manufacturer\": \"BikeCorp\",\n  \"items\": [\n    {\n      \"id\": \"4955d2a3-5fcd-4b77-8328-b3bbf10903a8\",\n      \"model\": \"Wheelset 29\",\n      \"type\": \"Wheels\",\n      \"description\": \"Durable 29-inch wheels for all terrains.\"\n    },\n    {\n      \"id\": \"b2bb980d-034e-49a2-ad00-f08a08000b92\",\n      \"model\": \"Shock Absorber Pro\",\n      \"type\": \"Suspension\",\n      \"description\": \"High-quality shock absorbers for a smooth ride.\"\n    },\n    {\n      \"id\": \"385677a4-ae25-4d7b-b0ed-105b9aa131b3\",\n      \"model\": \"Carbon Frame\",\n      \"type\": \"Frame\",\n      \"description\": \"Lightweight carbon frame for increased agility.\"\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "AUTH_TOKEN",
+			"value": ""
+		}
+	]
+}
