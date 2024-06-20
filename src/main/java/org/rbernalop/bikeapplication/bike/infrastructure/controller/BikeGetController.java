@@ -21,7 +21,7 @@ public class BikeGetController {
       @RequestParam(required = false) String name,
       @RequestParam(required = false) String manufacturer,
       @RequestParam(required = false) String itemType,
-      @RequestParam boolean sortByNameAscending) {
+      @RequestParam(defaultValue = "false") boolean sortByNameAscending) {
     BikeCriteria criteria = new BikeCriteria(name, manufacturer, itemType, sortByNameAscending);
     return bikeFinder.findWithCriteria(criteria);
   }
