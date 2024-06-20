@@ -28,4 +28,22 @@ public class CreateBikeDtoMother {
     dto.setName(null);
     return dto;
   }
+
+  public static CreateBikeDto randomWithInvalidItemId() {
+    CreateBikeDto dto = random();
+    dto.setItems(List.of(CreateItemDtoMother.randomWithInvalidId()));
+    return dto;
+  }
+
+  public static CreateBikeDto randomWithInvalidItemModel() {
+    CreateBikeDto dto = random();
+    dto.setItems(List.of(CreateItemDtoMother.randomWithInvalidModel()));
+    return dto;
+  }
+
+  public static CreateBikeDto randomWithInvalidItemType() {
+    CreateBikeDto dto = random();
+    dto.setItems(List.of(CreateItemDtoMother.randomWithInvalidType()));
+    return dto;
+  }
 }

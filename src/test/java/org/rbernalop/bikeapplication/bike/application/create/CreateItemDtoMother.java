@@ -13,4 +13,22 @@ public class CreateItemDtoMother {
     dto.setType(faker.backToTheFuture().character());
     return dto;
   }
+
+  public static CreateItemDto randomWithInvalidId() {
+    CreateItemDto dto = random();
+    dto.setId(null);
+    return dto;
+  }
+
+  public static CreateItemDto randomWithInvalidModel() {
+    CreateItemDto dto = random();
+    dto.setModel(null);
+    return dto;
+  }
+
+  public static CreateItemDto randomWithInvalidType() {
+    CreateItemDto dto = random();
+    dto.setType(null);
+    return dto;
+  }
 }

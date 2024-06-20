@@ -75,6 +75,9 @@ Se han realizado tests unitarios a la **capa de aplicación** para cubrir tanto 
 - C2: Se lanza una excepción porque la bicicleta ya existe.
 - C3-1: Se lanza una excepción porque el Id de la bicicleta es nulo/vacío.
 - C3-2: Se lanza una excepción porque el Name de la bicicleta es nulo/vacío.
+- C3-3: Se lanza una excepción porque el Id de un item de la bicicleta es nulo/vacío.
+- C3-4: Se lanza una excepción porque el Model de un item de la bicicleta es nulo/vacío.
+- C3-5: Se lanza una excepción porque el Type de un item de la bicicleta es nulo/vacío.
 
 [Obtener bicicletas](src/test/java/org/rbernalop/bikeapplication/bike/application/find/BikeFinderTest.java):
 - C1: Se obtienen bicicletas correctamente.

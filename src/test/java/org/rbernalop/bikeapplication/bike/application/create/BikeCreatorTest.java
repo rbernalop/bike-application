@@ -85,7 +85,10 @@ class BikeCreatorTest extends UnitTestCase {
   static Stream<Arguments> nullCasesProvider() {
     return Stream.of(
         Arguments.of(CreateBikeDtoMother.randomWithInvalidId(), BikeError.BIKE_ID_IS_NULL_OR_EMPTY),
-        Arguments.of(CreateBikeDtoMother.randomWithInvalidName(), BikeError.BIKE_NAME_IS_NULL_OR_EMPTY)
+        Arguments.of(CreateBikeDtoMother.randomWithInvalidName(), BikeError.BIKE_NAME_IS_NULL_OR_EMPTY),
+        Arguments.of(CreateBikeDtoMother.randomWithInvalidItemId(), BikeError.ITEM_ID_IS_NULL_OR_EMPTY),
+        Arguments.of(CreateBikeDtoMother.randomWithInvalidItemModel(), BikeError.ITEM_MODEL_IS_NULL_OR_EMPTY),
+        Arguments.of(CreateBikeDtoMother.randomWithInvalidItemType(), BikeError.ITEM_TYPE_IS_NULL_OR_EMPTY)
     );
   }
 
